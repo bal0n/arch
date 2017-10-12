@@ -19,20 +19,13 @@ function base {
 	genfstab -U -p /mnt >> /mnt/etc/fstab
 }
 
-function config {
-	echo "vantpc" >> /etc/hostname
-	rm /etc/localtime
-	ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime
-	echo "LANG=es_ES.UTF-8" >> /etc/locale.conf
-	rm /etc/locale.gen
-	echo "es_ES.UTF-8 UTF-8" >> /etc/locale.gen
-	locale-gen
-	echo "KEYMAP=es" >> /etc/vconsole.conf
-}
-
-function grub {
-	grub-install /dev/sda
-	grub-mkconfig -o /boot/grub/grub.cfg
+function chroot {
+	cp chroot.sh /mnt
+	chmod +x /mnt/chroot.sh
+	arch-chroot /mnt ./chroot.sh
+	umount /tmp
+	umount /mnt/boot
+	umount /mnt
 }
 
 # Main
@@ -48,11 +41,4 @@ else
 	wifi-menu;
 fi
 
-arch-chroot /mnt
-#config
-#grub
-#mkinitcpio -p linux
-#passwd
-#exit
-umount /mnt/boot
-umount /mnt
+chroot
