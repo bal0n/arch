@@ -23,7 +23,6 @@ function chroot {
 	cp chroot.sh /mnt
 	chmod +x /mnt/chroot.sh
 	arch-chroot /mnt ./chroot.sh
-	umount /tmp
 	umount /mnt/boot
 	umount /mnt
 }
