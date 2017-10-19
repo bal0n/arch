@@ -14,7 +14,7 @@ function xorg {
 }
 
 function config {
-  sudo pacman -S git xdg-user-dirs wget ntfs-3g dialog net-tools openssh openvpn file-roller p7zip unrar unzip
+  sudo pacman -S git xdg-user-dirs wget ntfs-3g dialog net-tools openssh openvpn file-roller p7zip unrar unzip gnupg
   xdg-user-dirs-update
 }
 
