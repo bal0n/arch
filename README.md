@@ -1,11 +1,11 @@
 # Guión de instalación de Arch usando scripts
 
-git clone https://github.com/franciscodejavier/arch.git arch
-cd arch
-sh script.sh
-git clone https://github.com/franciscodejavier.arch.git arch
-cd arch 
-sh config.sh
+	git clone https://github.com/franciscodejavier/arch.git arch
+	cd arch
+	sh script.sh
+	git clone https://github.com/franciscodejavier.arch.git arch
+	cd arch 
+	sh config.sh
 
 # Guión manual de instalación
 
