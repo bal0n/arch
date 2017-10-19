@@ -1,30 +1,30 @@
 # Scripts de instalación base de Archlinux y configuraciones personales
 
 # Guión personal:
-loadkeys
-cfdisk
-	/dev/sda1	  /boot	  150MB	  *Bootable
-	/dev/sda2	  /	      –
-	/dev/sda3	  /home	  - 
-	/dev/sda4	  /swap	  2GB		  * Type: Linux Swap / Solaris
+	loadkeys
+	cfdisk
+		/dev/sda1	  /boot	  150MB	  *Bootable
+		/dev/sda2	  /	      –
+		/dev/sda3	  /home	  - 
+		/dev/sda4	  /swap	  2GB		  * Type: Linux Swap / Solaris
 
-mkfs.ext2 /dev/sda1
-mkfs.ext4 /dev/sda2
-mkfs.ext4 /dev/sda3
-mkswap /dev/sda4
-swapon /dev/sda4
+	mkfs.ext2 /dev/sda1
+	mkfs.ext4 /dev/sda2
+	mkfs.ext4 /dev/sda3
+	mkswap /dev/sda4
+	swapon /dev/sda4
+	
+	mount /dev/sda2 /mnt
+	mkdir /mnt/boot
+	mkdir /mnt/home
+	mount /dev/sda1 /mnt/boot
+	mount /dev/sda3 /mnt/home
 
-mount /dev/sda2 /mnt
-mkdir /mnt/boot
-mkdir /mnt/home
-mount /dev/sda1 /mnt/boot
-mount /dev/sda3 /mnt/home
-
-wifi-menu
-ping 8.8.8.8
-pacstrap /mnt base base-devel grub-bios networkmanager xf86-input-synaptics
-genfstab -U -p /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
+	wifi-menu
+	ping 8.8.8.8
+	pacstrap /mnt base base-devel grub-bios networkmanager xf86-input-synaptics
+	genfstab -U -p /mnt >> /mnt/etc/fstab
+	arch-chroot /mnt
 
 	echo “nombre-de-equipo” >> /etc/hostname
 	ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime
@@ -41,16 +41,16 @@ arch-chroot /mnt
 	passwd
 	exit
 
-umount /mnt/boot
-umount /mnt/home
-reboot
+	umount /mnt/boot
+	umount /mnt/home
+	reboot
 
-systemctl start NetworkManager.service
-systemctl enable NetworkManager.service
-useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash nombre-de-usuario
-passwd nombre-de-usuario
-nano /etc/sudoers
-reboot
+	systemctl start NetworkManager.service
+	systemctl enable NetworkManager.service
+	useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash nombre-de-usuario
+	passwd nombre-de-usuario
+	nano /etc/sudoers
+	reboot
 
-sudo nmcli dev wifi connect SSID password PASSWORD
-sudo pacman -Syu
+	sudo nmcli dev wifi connect SSID password PASSWORD
+	sudo pacman -Syu
