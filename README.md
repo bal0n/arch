@@ -1,6 +1,7 @@
-# Scripts de instalación base de Archlinux y configuraciones personales
+# Guión de instalación base de Archlinux y configuraciones personales
 
-# Guión personal:
+Disco duro
+
 	loadkeys
 	cfdisk
 		/dev/sda1	  /boot	  150MB	  *Bootable
@@ -20,11 +21,15 @@
 	mount /dev/sda1 /mnt/boot
 	mount /dev/sda3 /mnt/home
 
+Sistema base
+
 	wifi-menu
 	ping 8.8.8.8
 	pacstrap /mnt base base-devel grub-bios networkmanager xf86-input-synaptics
 	genfstab -U -p /mnt >> /mnt/etc/fstab
 	arch-chroot /mnt
+
+Configuracuión inicial en chroot
 
 	echo “nombre-de-equipo” >> /etc/hostname
 	ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime
@@ -45,12 +50,16 @@
 	umount /mnt/home
 	reboot
 
+Configuración inicial con root
+
 	systemctl start NetworkManager.service
 	systemctl enable NetworkManager.service
 	useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash nombre-de-usuario
 	passwd nombre-de-usuario
 	nano /etc/sudoers
 	reboot
+
+Configuración inicial con usuario
 
 	sudo nmcli dev wifi connect SSID password PASSWORD
 	sudo pacman -Syu
