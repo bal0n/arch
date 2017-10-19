@@ -32,7 +32,7 @@ function files {
 }
 
 function awesome {
-  sudo pacman -S awesome pulseaudio pulseaudio-alsa pamixer xbindkeys acpi termite unclutter xorg-xbacklight artwiz-fonts ttf-bitstream-vera conky
+  sudo pacman -S awesome pulseaudio pulseaudio-alsa pamixer xbindkeys acpi termite compton unclutter xorg-xbacklight artwiz-fonts ttf-bitstream-vera conky
 }
 
 function tools {
