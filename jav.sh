@@ -37,6 +37,14 @@ function awesome {
 
 function tools {
   sudo pacman -S htop nethogs nmap gvfs-mtp libmtp android-tools android-udev emacs jre8-openjdk eclipse python ruby lua
+  # Instalando VirtualBox
+  echo "[*] Instalando paquetes necesarios"
+	sudo pacman -S virtualbox qt4 linux-headers
+	echo "[OK] Paquetes necesarios instalados"
+	echo "[*] Instalando los modulos en el kernel"
+	sudo modprobe vboxdrv vboxnetadp vboxnetflt vboxpci
+	echo "[OK] Modulos instalados en el kernel"
+	echo "[END] Iniciando virtualbox"
 }
 
 function myapplications {
