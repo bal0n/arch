@@ -1,13 +1,22 @@
-# Guión de instalación base de Archlinux y configuraciones personales
+# Guión de instalación de Arch usando scripts
+
+git clone https://github.com/franciscodejavier/arch.git arch
+cd arch
+sh script.sh
+git clone https://github.com/franciscodejavier.arch.git arch
+cd arch 
+sh config.sh
+
+# Guión manual de instalación
 
 Disco duro
 
 	loadkeys
 	cfdisk
-		/dev/sda1	  /boot	  150MB	  *Bootable
-		/dev/sda2	  /	      –
+		/dev/sda1	  /boot	  150MB	*Bootable
+		/dev/sda2	  /	  –
 		/dev/sda3	  /home	  - 
-		/dev/sda4	  /swap	  2GB		  * Type: Linux Swap / Solaris
+		/dev/sda4	  /swap	  2GB	* Type: Linux Swap / Solaris
 
 	mkfs.ext2 /dev/sda1
 	mkfs.ext4 /dev/sda2
