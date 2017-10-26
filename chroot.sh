@@ -1,6 +1,7 @@
 #!/bin/bash
 
 nombre_de_equipo=vantpc
+nombreusuario=javier
 
 function config {
 	echo $nombre_de_equipo >> /etc/hostname  
@@ -11,6 +12,8 @@ function config {
 	echo "es_ES.UTF-8 UTF-8" >> /etc/locale.gen 
 	locale-gen
 	echo "KEYMAP=es" >> /etc/vconsole.conf
+	#useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash $nombreusuario
+	#passwd $nombreusuario
 }
 
 function grub {
