@@ -10,11 +10,11 @@ function wifi {
 }
 
 function xorg {
-  sudo pacman -S xorg-server xorg-xinit mesa mesa-demos xf86-video-intel
+  sudo pacman -S $(<packages/xorg.txt)
 }
 
 function config {
-  sudo pacman -S git xdg-user-dirs wget ntfs-3g dialog net-tools openssh openvpn file-roller p7zip unrar unzip gnupg
+  sudo pacman -S $(<packages/config.txt)
   xdg-user-dirs-update
 }
 
@@ -32,11 +32,12 @@ function files {
 }
 
 function awesome {
-  sudo pacman -S awesome pulseaudio pulseaudio-alsa pamixer xbindkeys acpi termite compton unclutter xorg-xbacklight artwiz-fonts ttf-bitstream-vera conky
+  sudo pacman -S $(<package/awesome.txt)
 }
 
 function tools {
-  sudo pacman -S htop nethogs nmap gvfs-mtp libmtp android-tools android-udev emacs jre8-openjdk eclipse python ruby lua
+  sudo pacman -S $(<package/tools.txt)
+    
   # Instalando VirtualBox
   echo "[*] Instalando paquetes necesarios"
 	sudo pacman -S virtualbox qt4 linux-headers
@@ -48,7 +49,7 @@ function tools {
 }
 
 function myapplications {
-  sudo pacman -S firefox firefox-i18n-es-es libreoffice libreoffice-es vlc qt4 eog gimp evince nautilus emacs
+  sudo pacman -S $(<package/apps.txt)
 }
 
 function mariadb {
