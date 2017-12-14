@@ -1,0 +1,13 @@
+htop
+nethogs
+nmap
+gvfs-mtp
+libmtp
+android-tools
+android-udev
+emacs
+jre8-openjdk
+eclipse
+python
+ruby
+lua

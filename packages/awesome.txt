@@ -1,0 +1,12 @@
+awesome
+pulseaudio
+pulseaudio-alsa
+pamixer
+xbindkeys
+acpi
+termite
+compton
+unclutter
+artwiz-fonts
+ttf-bitstream-vera
+conky
