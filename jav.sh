@@ -9,35 +9,6 @@ function wifi {
   sudo pacman -Syu
 }
 
-function xorg {
-  sudo pacman -S $(<packages/xorg.txt)
-}
-
-function config {
-  sudo pacman -S $(<packages/config.txt)
-  xdg-user-dirs-update
-}
-
-function files {
-  git clone https://github.com/franciscodejavier/files.git
-  mv files/.nanorc ~/.nanorc
-  mv files/.bashrc ~/.bashrc
-  mv files/.xbindkeysrc ~/.xbindkeysrc
-  mv files/.xinitrc ~/.xinitrc
-  sudo mv files/etc/X11/xorg.conf.d/10-keyboard.conf /etc/X11/xorg.conf.d/10-keyboard.conf
-  sudo mv files/etc/X11/xorg.conf.d/50-synaptics.conf /etc/X11/xorg.conf.d/50-synaptics.conf
-  mkdir ~/.config/termite
-  mv files/.config/termite/config ~/.config/termite/config
-  sudo rm -R files
-}
-
-function awesome {
-  sudo pacman -S $(<package/awesome.txt)
-}
-
-function tools {
-  sudo pacman -S $(<package/tools.txt)
-    
   # Instalando VirtualBox
   echo "[*] Instalando paquetes necesarios"
 	sudo pacman -S virtualbox qt4 linux-headers
@@ -46,11 +17,7 @@ function tools {
 	sudo modprobe vboxdrv vboxnetadp vboxnetflt vboxpci
 	echo "[OK] Modulos instalados en el kernel"
 	echo "[END] Iniciando virtualbox"
-}
 
-function myapplications {
-  sudo pacman -S $(<package/apps.txt)
-}
 
 function mariadb {
 	echo Instalando MariaDB
