@@ -61,6 +61,8 @@ config
 userConfig
 awesomeInstallation
 grub
+getFiles
+
 mkinitcpio -p linux
 passwd
 exit
