@@ -1,11 +1,11 @@
 #!/bin/bash
 
-nombre_de_equipo=vantpc
-nombreusuario=javier
-passwordusuario=archlinux
+nEquipo=vantpc
+nUsuario=javier
+pUsuario=archlinux
 
 function config {
-    echo $nombre_de_equipo >> /etc/hostname  
+    echo $nEquipo >> /etc/hostname  
     rm /etc/localtime
     ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime  
     echo "LANG=es_ES.UTF-8" >> /etc/locale.conf  
@@ -17,8 +17,8 @@ function config {
 
 function userConfig {
     # Configuración de usuario
-    useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash $nombreusuario
-    printf "$passwordusuario\n$passwordusuario" | passwd $nombreusuario
+    useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash $nUsuario
+    printf "$pUsuario\n$pUsuario" | passwd $nUsuario
 
     # Configuración de red
     systemctl enable NetworkManager.service
