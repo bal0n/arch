@@ -1,7 +1,6 @@
 #!/bin/bash
-# ArchLinux install script
 
-# Funciones
+
 
 function adminDiscos {
 

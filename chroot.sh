@@ -3,6 +3,7 @@
 nEquipo=vantpc
 nUsuario=javier
 pUsuario=archlinux
+pRoot=archlinux
 
 function config {
     echo $nEquipo >> /etc/hostname  
@@ -64,5 +65,5 @@ grub
 getFiles
 
 mkinitcpio -p linux
-passwd
+printf "$pRoot\n$pRoot" | passwd
 exit
