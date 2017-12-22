@@ -5,14 +5,10 @@ keys=es
 
 # Funciones
 function adminDiscos {
-
-    # Prólogo
     mkfs.ext2 /dev/sda1
     mkfs.ext4 /dev/sda2
     mkswap /dev/sda3
     swapon /dev/sda3
-
-    # Nudo
     mount /dev/sda2 /mnt
     mkdir /mnt/boot
     mount /dev/sda1 /mnt/boot
@@ -34,7 +30,6 @@ function jaulaChroot {
 # Guión
 loadkeys $keys
 adminDiscos
-
 conexion=false
 while [  $conexion = false ]; do
     if ping -c1 google.com &> /dev/null; then
@@ -44,7 +39,6 @@ while [  $conexion = false ]; do
 	echo jeje;
     fi
 done
-
 instalacionBase
 jaulaChroot
 reboot
