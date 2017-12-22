@@ -22,6 +22,7 @@ function configUsuario {
     # Configuración de usuario
     useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash $nUsuario
     printf "$pUsuario\n$pUsuario" | passwd $nUsuario
+    echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 }
 
 function configRed {
