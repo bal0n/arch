@@ -1,7 +1,9 @@
 #!/bin/bash
 
+# Variables
+keys=es
 
-
+# Funciones
 function adminDiscos {
 
     # Prólogo
@@ -29,18 +31,20 @@ function jaulaChroot {
     umount /mnt
 }
 
-# Main
-
-loadkeys es
+# Guión
+loadkeys $keys
 adminDiscos
 
-if ping -c1 google.com &> /dev/null; then
-    echo OK;
-    instalacionBase;
-else
-    echo Conexion failed;
-    wifi-menu;
-fi
+conexion=false
+while [  $conexion = false ]; do
+    if ping -c1 google.com &> /dev/null; then
+	echo Ok;
+	conexion=true;
+    else
+	echo jeje;
+    fi
+done
 
+instalacionBase
 jaulaChroot
 reboot
