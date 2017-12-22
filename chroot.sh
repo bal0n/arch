@@ -5,6 +5,8 @@ nEquipo=arch
 nUsuario=javier
 pUsuario=archlinux
 pRoot=archlinux
+nGit=bal0n
+repoGit=files
 
 # Funciones
 function configGeneral {
@@ -55,7 +57,7 @@ function configGrub {
 }
 
 function getFiles {
-    git clone https://github.com/bal0n/files.git
+    git clone https://github.com/$nGit/$repoGit.git
     mv files/.nanorc ~/.nanorc
     mv files/.bashrc ~/.bashrc
     mv files/.xbindkeysrc ~/.xbindkeysrc
