@@ -1,11 +1,13 @@
 #!/bin/bash
 
-nEquipo=vantpc
+# Variables
+nEquipo=arch
 nUsuario=javier
 pUsuario=archlinux
 pRoot=archlinux
 
-function config {
+# Funciones
+function configGeneral {
     echo $nEquipo >> /etc/hostname  
     rm /etc/localtime
     ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime  
@@ -16,18 +18,24 @@ function config {
     echo "KEYMAP=es" >> /etc/vconsole.conf
 }
 
-function userConfig {
+function configUsuario {
     # Configuración de usuario
     useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash $nUsuario
     printf "$pUsuario\n$pUsuario" | passwd $nUsuario
+}
 
+function configRed {
     # Configuración de red
     systemctl enable NetworkManager.service
+}
 
+function configYaourt {
     # Instalación de Yaourt
     echo -e "[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf 
     pacman -Sy yaourt
- 
+}
+
+function instalServer {
     # Instalación Xorg Server y drivers 
     pacman -Sy --noconfirm $(<packages/xorg.txt)
 
@@ -36,11 +44,11 @@ function userConfig {
     xdg-user-dirs-update
 }
 
-function awesomeInstallation {
+function instalAwesome {
     pacman -Sy --noconfirm $(<packages/awesome.txt)
 }
 
-function grub {
+function configGrub {
     grub-install /dev/sda
     grub-mkconfig -o /boot/grub/grub.cfg
 }
@@ -58,10 +66,14 @@ function getFiles {
     rm -R files
 }
 
-config
-userConfig
-awesomeInstallation
-grub
+# Guión
+configGeneral
+configUsuario
+configRed
+configYaourt
+instalServer
+instalAwesome
+configGrub
 getFiles
 
 mkinitcpio -p linux
