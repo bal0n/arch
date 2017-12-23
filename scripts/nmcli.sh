@@ -3,18 +3,18 @@
 # Variables
 ssid=SSID
 pass=ABC123
-con=false 
+conexion=false
 
-while [ $con = false ]; do
-
-    # Conexión
+while [ $conexion = false ]; do
     nmcli dev wifi connect $ssid password $pass
-
-    # Comprobación de conexión
     if ping -c1 google.com &> /dev/null; then
-	echo OK;
+	echo Ok;
 	con=true;
     else
 	echo No conexion;
+	echo "Introduzca SSID: "
+	read $ssid
+	echo "Password: "
+	read $pass
     fi
 done
