@@ -10,12 +10,12 @@ repoGit=files
 
 # Funciones
 function configGeneral {
-    echo $nEquipo >> /etc/hostname  
+    echo $nEquipo >> /etc/hostname
     rm /etc/localtime
-    ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime  
-    echo "LANG=es_ES.UTF-8" >> /etc/locale.conf  
+    ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime
+    echo "LANG=es_ES.UTF-8" >> /etc/locale.conf
     mv /etc/locale.gen /etc/locale.gen.bk
-    echo "es_ES.UTF-8 UTF-8" >> /etc/locale.gen 
+    echo "es_ES.UTF-8 UTF-8" >> /etc/locale.gen
     locale-gen
     echo "KEYMAP=es" >> /etc/vconsole.conf
 }
@@ -34,12 +34,12 @@ function configRed {
 
 function configYaourt {
     # Instalación de Yaourt
-    echo -e "[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf 
+    echo -e "[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
     pacman -Sy yaourt
 }
 
 function instalServer {
-    # Instalación Xorg Server y drivers 
+    # Instalación Xorg Server y drivers
     pacman -Sy --noconfirm $(<packages/xorg.txt)
 
     # Instalación etc
