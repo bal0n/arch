@@ -3,8 +3,6 @@
 # Variables
 keys=es
 scriptChroot=chroot.sh
-ssid=
-pass=
 
 # Funciones
 function adminDiscos {
@@ -39,8 +37,7 @@ while [  $conexion = false ]; do
 	echo "Conexión correcta";
 	conexion=true;
     else
-	echo "Conexión incorrecta";
-	nmcli dev wifi connect $ssid password $pass
+	sh sh/nmcli.sh
     fi
 done
 instalacionBase
