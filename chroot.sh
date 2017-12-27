@@ -6,7 +6,7 @@ nUsuario=javier
 pUsuario=archlinux
 pRoot=archlinux
 nGit=bal0n
-repoGit=files
+repoGit=f
 
 # Funciones
 function configGeneral {
@@ -58,12 +58,12 @@ function configGrub {
 
 function getFiles {
     git clone https://github.com/$nGit/$repoGit.git
-    mv files/.nanorc ~/.nanorc
-    mv files/.bashrc ~/.bashrc
-    mv files/.xbindkeysrc ~/.xbindkeysrc
-    mv files/.xinitrc ~/.xinitrc
-    mv files/etc/X11/xorg.conf.d/10-keyboard.conf /etc/X11/xorg.conf.d/10-keyboard.conf
-    mv files/etc/X11/xorg.conf.d/50-synaptics.conf /etc/X11/xorg.conf.d/50-synaptics.conf
+    mv $repoGit/.nanorc ~/.nanorc
+    mv $repoGit/.bashrc ~/.bashrc
+    mv $repoGit/.xbindkeysrc ~/.xbindkeysrc
+    mv $repoGit/.xinitrc ~/.xinitrc
+    mv $repoGit/etc/X11/xorg.conf.d/10-keyboard.conf /etc/X11/xorg.conf.d/10-keyboard.conf
+    mv $repoGit/etc/X11/xorg.conf.d/50-synaptics.conf /etc/X11/xorg.conf.d/50-synaptics.conf
     mkdir ~/.config/termite
     mv files/.config/termite/config ~/.config/termite/config
     rm -R files
