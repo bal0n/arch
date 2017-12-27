@@ -2,6 +2,9 @@
 
 # Variables
 keys=es
+scriptChroot=chroot.sh
+ssid=
+pass=
 
 # Funciones
 function adminDiscos {
@@ -20,9 +23,9 @@ function instalacionBase {
 }
 
 function jaulaChroot {
-    cp chroot.sh /mnt
-    chmod +x /mnt/chroot.sh
-    arch-chroot /mnt ./chroot.sh
+    cp $scriptChroot /mnt
+    chmod +x /mnt/$scriptChroot
+    arch-chroot /mnt ./$scriptChroot
     umount /mnt/boot
     umount /mnt
 }
@@ -33,10 +36,11 @@ adminDiscos
 conexion=false
 while [  $conexion = false ]; do
     if ping -c1 google.com &> /dev/null; then
-	echo Ok;
+	echo "Conexión correcta";
 	conexion=true;
     else
-	echo jeje;
+	echo "Conexión incorrecta";
+	nmcli dev wifi connect $ssid password $pass
     fi
 done
 instalacionBase
