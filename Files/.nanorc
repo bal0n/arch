@@ -1,0 +1,3 @@
+#set mouse
+set titlecolor white,#222222
+include "/usr/share/nano/*.nanorc"
