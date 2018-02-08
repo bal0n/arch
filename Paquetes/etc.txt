@@ -38,3 +38,4 @@ cmatrix
 screenfetch
 mariadb
 transmission-gtk
+traceroute
