@@ -37,7 +37,7 @@ while [  $conexion = false ]; do
 	echo "Conexión correcta";
 	conexion=true;
     else
-	sh sh/nmcli.sh
+	wifi-menu;
     fi
 done
 instalacionBase
