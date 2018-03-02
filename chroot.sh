@@ -5,7 +5,7 @@ nEquipo=arch
 nUsuario=javier
 pUsuario=archlinux
 pRoot=archlinux
-nGit=bal0n
+nGit=franciscodejavier
 repoGit=f
 
 # Funciones
