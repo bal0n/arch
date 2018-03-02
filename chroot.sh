@@ -40,15 +40,15 @@ function configYaourt {
 
 function instalServer {
     # Instalación Xorg Server y drivers
-    pacman -Sy --noconfirm $(<packages/xorg.txt)
+    pacman -Sy --noconfirm $(<pckgs/xorg.txt)
 
     # Instalación etc
-    pacman -Sy --noconfirm $(<packages/etc.txt)
+    pacman -Sy --noconfirm $(<pckgs/etc.txt)
     xdg-user-dirs-update
 }
 
 function instalAwesome {
-    pacman -Sy --noconfirm $(<packages/awesome.txt)
+    pacman -Sy --noconfirm $(<pckgs/awesome.txt)
 }
 
 function configGrub {
