@@ -58,14 +58,14 @@ function configGrub {
 
 function getFiles {
     git clone https://github.com/$nGit/$repoGit.git
-    mv $repoGit/Files/.nanorc ~/.nanorc
-    mv $repoGit/Files/.bashrc ~/.bashrc
-    mv $repoGit/Files/.xbindkeysrc ~/.xbindkeysrc
-    mv $repoGit/Files/.xinitrc ~/.xinitrc
-    mv $repoGit/Files/etc/X11/xorg.conf.d/10-keyboard.conf /etc/X11/xorg.conf.d/10-keyboard.conf
-    mv $repoGit/Files/etc/X11/xorg.conf.d/50-synaptics.conf /etc/X11/xorg.conf.d/50-synaptics.conf
+    mv $repoGit/files/.nanorc ~/.nanorc
+    mv $repoGit/files/.bashrc ~/.bashrc
+    mv $repoGit/files/.xbindkeysrc ~/.xbindkeysrc
+    mv $repoGit/files/.xinitrc ~/.xinitrc
+    mv $repoGit/files/etc/X11/xorg.conf.d/10-keyboard.conf /etc/X11/xorg.conf.d/10-keyboard.conf
+    mv $repoGit/files/etc/X11/xorg.conf.d/50-synaptics.conf /etc/X11/xorg.conf.d/50-synaptics.conf
     mkdir ~/.config/termite
-    mv $repoGit/Files/.config/termite/config ~/.config/termite/config
+    mv $repoGit/files/.config/termite/config ~/.config/termite/config
     rm -R files
 }
 
