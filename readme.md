@@ -1,5 +1,6 @@
 # Guión de instalación de Arch usando scripts
-
+## En formación
+### No fiable
 	git clone https://github.com/franciscodejavier/arch.git arch
 	cd arch
 	sh script.sh
