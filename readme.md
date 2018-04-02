@@ -1,6 +1,6 @@
-# Guión de instalación de Arch usando scripts
-## En formación
-### No fiable
+# Personal Arch Linux Scripts
+## Guión de instalación de Arch usando scripts
+
 	git clone https://github.com/franciscodejavier/arch.git arch
 	cd arch
 	sh script.sh
@@ -8,7 +8,7 @@
 	cd arch 
 	sh config.sh
 
-# Guión manual de instalación
+## Guión manual de instalación
 
 Disco duro
 
