@@ -1,8 +1,0 @@
-xorg
-xorg-server
-xorg-xinit
-xorg-xbacklight
-xorg-xkill
-mesa
-mesa-demos
-xf86-video-intel

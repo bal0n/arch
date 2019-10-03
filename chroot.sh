@@ -1,16 +1,35 @@
 #!/bin/bash
 
 # Variables
-nEquipo=arch
-nUsuario=javier
-pUsuario=archlinux
-pRoot=archlinux
-nGit=franciscodejavier
-repoGit=Arch
+hostname=arch
+username=balon
+passu=archlinux
+passroot=archlinux
+pckgs=pckgs
+scriptsDir=scripts
 
 # Funciones
+function installPckgs {
+
+    #    Backup de paquetes instalados
+    #    # pacman -Qqe > pkglist.txt
+    #    (Nota: Si se usó la opción -t al reinstalar la lista, todos los paquetes que no 
+    #    sean de nivel superior se establecerán como dependencias. Con la opción -n, los 
+    #    paquetes externos (por ejemplo, de AUR) se omitirán de la lista.)
+        
+    #    Reinstalación de paquetes de backup
+    #    # pacman -S - < pkglist.txt
+
+    pacman -Sy --noconfirm $(<pckgs)
+}
+
+
+function scriptsRocket {
+    sh $scripts/*.sh
+}
+
 function configGeneral {
-    echo $nEquipo >> /etc/hostname
+    echo $hostname >> /etc/hostname
     rm /etc/localtime
     ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime
     echo "LANG=es_ES.UTF-8" >> /etc/locale.conf
@@ -18,12 +37,14 @@ function configGeneral {
     echo "es_ES.UTF-8 UTF-8" >> /etc/locale.gen
     locale-gen
     echo "KEYMAP=es" >> /etc/vconsole.conf
+    # Instalación de directorios personales
+    xdg-user-dirs-update
 }
 
 function configUsuario {
     # Configuración de usuario
-    useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash $nUsuario
-    printf "$pUsuario\n$pUsuario" | passwd $nUsuario
+    useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash $username
+    printf "$passu\n$passu" | passwd $username
     echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 }
 
@@ -32,53 +53,34 @@ function configRed {
     systemctl enable NetworkManager.service
 }
 
-function configYaourt {
-    # Instalación de Yaourt
-    echo -e "[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
-    pacman -Sy yaourt
-}
 
-function instalServer {
-    # Instalación Xorg Server y drivers
-    pacman -Sy --noconfirm $(<pckgs/xorg.txt)
+# YAOURT HA MUERTO
+#function configYaourt {
+#    # Instalación de Yaourt
+#    echo -e "[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
+#    pacman -Sy yaourt
+#}
 
-    # Instalación etc
-    pacman -Sy --noconfirm $(<pckgs/etc.txt)
-    xdg-user-dirs-update
-}
 
-function instalAwesome {
-    pacman -Sy --noconfirm $(<pckgs/awesome.txt)
-}
-
+# Configuración de Grub
 function configGrub {
     grub-install /dev/sda
     grub-mkconfig -o /boot/grub/grub.cfg
 }
 
+# DEPRECATED
 function getFiles {
-    git clone https://github.com/$nGit/$repoGit.git
-    mv $repoGit/files/.nanorc ~/.nanorc
-    mv $repoGit/files/.bashrc ~/.bashrc
-    mv $repoGit/files/.xbindkeysrc ~/.xbindkeysrc
-    mv $repoGit/files/.xinitrc ~/.xinitrc
-    mv $repoGit/files/etc/X11/xorg.conf.d/10-keyboard.conf /etc/X11/xorg.conf.d/10-keyboard.conf
-    mv $repoGit/files/etc/X11/xorg.conf.d/50-synaptics.conf /etc/X11/xorg.conf.d/50-synaptics.conf
-    mkdir ~/.config/termite
-    mv $repoGit/files/.config/termite/config ~/.config/termite/config
-    rm -R files
+    sh deployment.sh
 }
 
 # Guión
+installPckgs
 configGeneral
 configUsuario
 configRed
-configYaourt
-instalServer
-instalAwesome
 configGrub
 getFiles
 
 mkinitcpio -p linux
-printf "$pRoot\n$pRoot" | passwd
+printf "$passroot\n$passroot" | passwd
 exit
