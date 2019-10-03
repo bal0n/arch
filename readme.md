@@ -9,7 +9,7 @@
 ## Guión de instalación de Arch GNU/Linux usando scripts
 
     pacman -S git
-	git clone https://gitlab.com/theoslogos/archscripts.git 
+	git clone https://github.com/todoterreno/archscripts.git arch
 	cd arch
 	sh root.sh
 
