@@ -8,8 +8,12 @@
 
 ## Guión de instalación de Arch GNU/Linux usando scripts
 
-    pacman -S git
-	git clone https://github.com/todoterreno/archscripts.git arch
+	SERVER=github.com
+	USER=metaphysys
+	REPO=archscripts
+
+        pacman -S git
+	git clone https://$SERVER/$USER/$REPO.git arch
 	cd arch
 	sh root.sh
 
