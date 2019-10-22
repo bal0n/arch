@@ -1,3 +1,5 @@
-exec mate-session
-#exec awesome
+#exec mate-session
 #qtile
+xrdb -merge ~/.Xresources &&
+numlockx &&
+exec awesome
