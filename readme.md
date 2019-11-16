@@ -42,13 +42,14 @@
 	wifi-menu
 	
 	ping 8.8.8.8
-	pacstrap /mnt base base-devel grub-bios networkmanager xf86-input-synaptics
+	pacstrap /mnt linux linux-firmware base base-devel networkmanager xf86-input-synaptics
 	genfstab -U -p /mnt >> /mnt/etc/fstab
 	arch-chroot /mnt
 
 	echo “nombre-de-equipo” >> /etc/hostname
 	ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime
 	echo “LANG=es_ES.UTF-8” >> /etc/locale.conf
+	pacman -S nano grub
 	nano /etc/locale.gen
 	locale-gen
 	echo “KEYMAP=es” >> /etc/vconsole.conf
