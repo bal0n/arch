@@ -9,6 +9,7 @@ xf86-video-intel
 
 
 git
+tree
 wget
 ntfs-3g
 net-tools
