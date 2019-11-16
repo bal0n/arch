@@ -5,7 +5,7 @@ xorg-xbacklight
 numlockx
 mesa
 mesa-demos
-xf86-input-synaptics
+xf86-video-intel
 
 
 git
@@ -56,3 +56,5 @@ mariadb
 notepadqq
 texlive-most
 texlive-latexextra
+
+evince
