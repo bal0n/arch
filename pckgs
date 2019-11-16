@@ -51,9 +51,11 @@ libreoffice-es
 
 code
 python
+python-pip
 perl
 mariadb
 texlive-most
 texlive-latexextra
 
 evince
+grc
