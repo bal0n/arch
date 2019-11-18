@@ -5,7 +5,8 @@ keys=es
 chr=chroot.sh
 boot=/dev/sda1
 root=/dev/sda2
-swap=/dev/sda3
+home=/dev/sda3
+swap=/dev/sda4
 
 '''
     Formato y administración de discos.
@@ -13,8 +14,8 @@ swap=/dev/sda3
     
         boot /dev/sda1	  /boot	  150MB	*Bootable
         root /dev/sda2	  /	  –
-        # home /dev/sdaX	  /home	  - 
-        swap /dev/sda3	  /swap	  2GB	* Type: Linux Swap / Solaris
+        home /dev/sda3	  /home	  - 
+        swap /dev/sda4	  /swap	  2GB	* Type: Linux Swap / Solaris
 
     Se puede obtener con el comando cfdisk antes de ejecutar el script.
     !Función pendiente de automatizar.
@@ -22,11 +23,14 @@ swap=/dev/sda3
 function adminDiscos {
     mkfs.ext2 $boot
     mkfs.ext4 $root
+    mkfs.ext4 $home
     mkswap $swap
     swapon $swap
     mount $root /mnt
     mkdir /mnt/boot
+    mkdir /mnt/home
     mount $boot /mnt/boot
+    mount $home /mnt/home
 }
 
 '''
@@ -46,6 +50,7 @@ function jaulaChroot {
     chmod +x /mnt/$chr
     arch-chroot /mnt ./$chr
     umount /mnt/boot
+    umount /mnt/home
     umount /mnt
 }
 
