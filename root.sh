@@ -34,7 +34,7 @@ function adminDiscos {
     !Pendiente de extraer los paquetes para una mayor escala y abtracción.
 '''
 function instalacionBase {
-    pacstrap /mnt base base-devel grub-bios networkmanager xf86-input-synaptics
+    pacstrap /mnt linux linux-firmware base base-devel networkmanager xf86-input-synaptics
     genfstab -U -p /mnt >> /mnt/etc/fstab
 }
 

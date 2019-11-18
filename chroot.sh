@@ -38,7 +38,7 @@ function configGeneral {
     locale-gen
     echo "KEYMAP=es" >> /etc/vconsole.conf
     # Instalación de directorios personales
-    xdg-user-dirs-update
+    #xdg-user-dirs-update
 }
 
 function configUsuario {
@@ -64,6 +64,7 @@ function configRed {
 
 # Configuración de Grub
 function configGrub {
+    pacman -S grub
     grub-install /dev/sda
     grub-mkconfig -o /boot/grub/grub.cfg
 }
