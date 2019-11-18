@@ -80,7 +80,7 @@ configGeneral
 configUsuario
 configRed
 configGrub
-getFiles
+#getFiles
 
 mkinitcpio -p linux
 printf "$passroot\n$passroot" | passwd
