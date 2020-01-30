@@ -21,12 +21,14 @@ swap=/dev/sda4
     !Función pendiente de automatizar.
 '''
 function adminDiscos {
+    # TODO: Revisar UEFI
     mkfs.ext2 $boot
     mkfs.ext4 $root
     mkfs.ext4 $home
     mkswap $swap
     swapon $swap
     mount $root /mnt
+    # TODO: Revisar UEFI
     mkdir /mnt/boot
     mkdir /mnt/home
     mount $boot /mnt/boot
