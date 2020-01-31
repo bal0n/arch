@@ -6,6 +6,33 @@
 4.  *Centrado en el usuario*. Mientras que muchas distribuciones de GNU/Linux intentan ser *fáciles de usar*, Arch Linux siempre ha pretendido y pretende permanecer *centrado en el usuario*. Está dirigida a usuarios competentes en GNU/Linux, o a cualquier persona con una actitud «do-it-yourself» que esté dispuesta a leer la documentación y resolver por sí misma los problemas.
 5.  *Versatilidad*. Arch Linux es una distribución de propósito general. Tras la instalación, solo se proporciona un entorno de línea de órdenes: en lugar de ir eliminando paquetes innecesarios y no deseados, se ofrece al usuario la posibilidad de crear un sistema personalizado.
 
+### Arquitectura del procesador
+El primer paso para la realización de la instalación del sistema Arch Linux es conocer la arquitectura del procesador del equipo físico. Arch Linux abandonó el desarrollo para la arquitectura de 32Bits en 2017, por lo tanto ya no se brinda soporte a este tipo de arquitecturas.
+
+Para averiguar con qué arquitectura cuenta nuestro PC:
+
+	uname -m
+
+Para obtener información más detallada sobre el procesador:
+
+	lscpu
+
+### BIOS
+La BIOS, creado en 1975, y sus siglas significan Basic Input Output System o sistema básico de entrada y salida. Su función principal es la de iniciar los componentes de hardware y lanzar el sistema operativo de un ordenador cuando este es encendido. También carga las funciones de gestión de energía y temperatura del ordenador.
+
+Al encender el equipo lo primero que se carga en él es la BIOS. Este firmware entonces se encarga de iniciar, configurar y comprobar que se encuentre en buen estado el hardware, incluyendo la memoria RAM, los discos duros, la placa base o la tarjeta gráfica. Cuando termina selecciona el dispositivo de arranque (disco duro, CD, USB etcétera) y procede a iniciar el sistema operativo, y le cede a él el control.
+
+### UEFI
+La Interfaz de Firmware Extensible Unificada o UEFI (Unified Extensible Firmware Interface) es el firmware sucesor del BIOS. A mediados de la década pasada las empresas tecnológicas se dieron cuenta de que el BIOS estaba quedándose obsoleto, y 140 de ellas se unieron en la fundación UEFI para renovarla y reemplazarla por un sistema más moderno.
+
+En esencia, todo lo que hemos dicho antes que hace el BIOS lo hace también la UEFI. Pero también tiene otras funciones adicionales y mejoras sustanciales, como una interfaz gráfica mucho más moderna, un sistema de inicio seguro, una mayor velocidad de arranque o el soporte para discos duros de más de 2 TB.
+
+### BIOS y UEFI con respecto al sistema operativo de Arch
+Podemos encontrar varias diferencias entre BIOS Y UEFI, pero las que nos importa para entender la instalación de Archlinux son:
+
+* Los sistemas con BIOS utilizan el esquema de particiones MBR, estos sólo soportan hasta cuatro particiones primarias y unidades de almacenamiento de una capacidad máxima de 2,2 TB.
+* Los firmware UEFI, por su parte, utiliza el esquema de particiones MBR y GPT. Este ultimo es más moderno poniendo el límite teórico de capacidades de discos duros sopoertadas en 9,4 zettabytes, aunque de momento no se fabrica ninguno tan grande. Pero la caracteristica que si podría interesarnos es la de soportar hasta 128 particiones primarias.
+
 ## Guión de instalación de Arch GNU/Linux usando scripts
 
 	SERVER=github.com
