@@ -7,6 +7,7 @@ passu=archlinux
 passroot=archlinux
 pckgs=pckgs
 scriptsDir=scripts
+uefi=false
 
 # Funciones
 function installPckgs {
@@ -65,8 +66,12 @@ function configRed {
 
 # Configuración de Grub
 function configGrub {
-    pacman -S grub
-    grub-install /dev/sda
+    if [  $uefi = true ]; then
+        grub-install --efi-directory=/boot/efi --bootloader-id='Arch Linux' --target=x86_64-efi
+    else
+        grub-install /dev/sda
+    fi
+
     grub-mkconfig -o /boot/grub/grub.cfg
 }
 
