@@ -39,6 +39,7 @@ function configGeneral {
     echo "KEYMAP=es" >> /etc/vconsole.conf
     # Instalación de directorios personales
     #xdg-user-dirs-update
+    hwclock -w
 }
 
 function configUsuario {
