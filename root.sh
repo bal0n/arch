@@ -7,6 +7,7 @@ boot=/dev/nvme0n1p1 #/dev/sda1
 root=/dev/nvme0n1p2 #/dev/sda2
 home=/dev/nvme0n1p3 #/dev/sda3
 swap=/dev/nvme0n1p4 #/dev/sda4
+uefi=false
 
 '''
     Formato y administración de discos.
@@ -21,17 +22,27 @@ swap=/dev/nvme0n1p4 #/dev/sda4
     !Función pendiente de automatizar.
 '''
 function adminDiscos {
-    # TODO: Revisar UEFI
-    mkfs.ext2 $boot
+    if [  $uefi = true ]; then
+        mkfs.vfat -F32 $boot
+    else
+        mkfs.ext2 $boot
+    fi
+
     mkfs.ext4 $root
     mkfs.ext4 $home
     mkswap $swap
     swapon $swap
     mount $root /mnt
-    # TODO: Revisar UEFI
-    mkdir /mnt/boot
+
+    if [  $uefi = true ]; then
+        mkdir -p /mnt/boot/efi
+        mount $boot /mnt/boot/efi
+    else
+        mkdir /mnt/boot
+        mount $boot /mnt/boot
+    fi
+
     mkdir /mnt/home
-    mount $boot /mnt/boot
     mount $home /mnt/home
 }
 
@@ -40,7 +51,10 @@ function adminDiscos {
     !Pendiente de extraer los paquetes para una mayor escala y abtracción.
 '''
 function instalacionBase {
-    pacstrap /mnt linux linux-firmware base base-devel networkmanager xf86-input-synaptics
+    pacstrap /mnt linux linux-firmware base base-devel networkmanager xf86-input-synaptics grub ntfs-3g gvfs xdg-user-dirs nano wpa_supplicant dialog
+    if [  $uefi = true ]; then
+        pacstrap /mnt efibootmgr
+    fi
     genfstab -U -p /mnt >> /mnt/etc/fstab
 }
 
