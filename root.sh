@@ -3,10 +3,10 @@
 # Variables
 keys=es
 chr=chroot.sh
-boot=/dev/sda1
-root=/dev/sda2
-home=/dev/sda3
-swap=/dev/sda4
+boot=/dev/nvme0n1p1 #/dev/sda1
+root=/dev/nvme0n1p2 #/dev/sda2
+home=/dev/nvme0n1p3 #/dev/sda3
+swap=/dev/nvme0n1p4 #/dev/sda4
 
 '''
     Formato y administración de discos.
