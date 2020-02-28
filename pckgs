@@ -23,6 +23,7 @@ file-roller
 p7zip
 unrar
 unzip
+dpkg
 gnupg
 htop
 nethogs
