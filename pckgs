@@ -6,7 +6,11 @@ numlockx
 mesa
 mesa-demos
 xf86-video-intel
-
+xf86-video-nouveau
+nvidia
+nvidia-utils
+nvidia-settings
+optimus-manager
 
 git
 tree
@@ -23,7 +27,6 @@ gnupg
 htop
 nethogs
 nmap
-android-tools
 screenfetch
 
 
@@ -44,7 +47,6 @@ firefox
 firefox-i18n-es-es
 vlc
 gimp
-thunar
 libreoffice
 libreoffice-es
 
@@ -56,8 +58,4 @@ perl
 mariadb
 texlive-most
 texlive-latexextra
-
-evince
 grc
-conky
-peek
