@@ -38,7 +38,7 @@ pavucontrol
 pamixer
 xbindkeys
 acpi
-termite
+rxvt-unicode
 compton
 unclutter
 ttf-bitstream-vera
