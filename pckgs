@@ -26,6 +26,7 @@ unzip
 dpkg
 gnupg
 htop
+nvtop
 nethogs
 nmap
 screenfetch
@@ -60,3 +61,7 @@ mariadb
 texlive-most
 texlive-latexextra
 grc
+
+nikto
+hydra
+metasploit
