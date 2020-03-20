@@ -57,12 +57,18 @@ function configRed {
 }
 
 
-# YAOURT HA MUERTO
-#function configYaourt {
-#    # Instalación de Yaourt
-#    echo -e "[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
-#    pacman -Sy yaourt
-#}
+function configAUR {
+    ## Deprecated for dead of yaourt
+    # echo -e "[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
+    # pacman -Sy yaourt
+    cd /tmp
+    gpg --recv-key 465022E743D71E39
+    git clone https://aur.archlinux.org/aurman.git
+    cd aurman
+    makepkg -si
+    sudo sed -i '/^#Color/s/^#//' /etc/pacman.conf
+    aurman -Syu
+}
 
 
 # Configuración de Grub
@@ -86,6 +92,7 @@ installPckgs
 configGeneral
 configUsuario
 configRed
+configAUR
 configGrub
 #getFiles
 
