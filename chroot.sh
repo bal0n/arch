@@ -41,6 +41,7 @@ function configGeneral {
     # Instalación de directorios personales
     #xdg-user-dirs-update
     hwclock -w
+    systemctl enable acpid.service
 }
 
 function configUsuario {

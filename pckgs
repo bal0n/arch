@@ -39,6 +39,7 @@ pavucontrol
 pamixer
 xbindkeys
 acpi
+acpid
 rxvt-unicode
 compton
 unclutter
