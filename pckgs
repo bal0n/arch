@@ -27,6 +27,7 @@ dpkg
 gnupg
 htop
 nvtop
+traceroute
 nethogs
 nmap
 screenfetch
