@@ -32,7 +32,6 @@ nethogs
 nmap
 screenfetch
 
-
 awesome
 pulseaudio
 pulseaudio-alsa
@@ -42,10 +41,10 @@ xbindkeys
 acpi
 acpid
 rxvt-unicode
+termite
 compton
 unclutter
 ttf-bitstream-vera
-
 
 firefox
 firefox-i18n-es-es
@@ -53,7 +52,6 @@ vlc
 gimp
 libreoffice
 libreoffice-es
-
 
 code
 python
