@@ -1,0 +1,86 @@
+!-------------------------------------------------------------------------------
+! Xft settings
+!-------------------------------------------------------------------------------
+
+Xft.dpi:                    96
+Xft.antialias:              false
+Xft.rgba:                   rgb
+Xft.hinting:                true 
+Xft.hintstyle:              hintslight
+
+URxvt.dept10h:              32
+URxvt.geometry:             100x25
+URxvt.transparent:          false
+URxvt.fading:               0
+! URxvt.urgentOnBell:         true
+! URxvt.visualBell:           true
+URxvt.loginShell:           true
+URxvt.saveLines:            500
+URxvt.internalBorder:       20 ! DEFAULT = 3 
+URxvt.lineSpace:            0 
+
+! Fonts
+URxvt.allow_bold:           true
+URxvt*font: xft:DejaVu Sans Mono:style=Regular:pixelsize=12
+URxvt*boldFont: xft:DejaVu Sans Mono:style=Bold:pixelsize=13
+URxvt*italicFont: xft:DejaVu Sans Mono:style=Italic:pixelsize=13
+URxvt*boldItalicFont: xft:DejaVu Sans Mono:style=Bold Italic:pixelsize=13
+URxvt*letterSpace: 0 ! Fix font space
+
+! Scrollbar
+URxvt.scrollStyle:          rxvt
+URxvt.scrollBar:            false
+
+! Perl extensions
+URxvt.perl-ext-common:      default,matcher,clipboard,selection-to-clipboard
+URxvt.matcher.button:       1
+URxvt.urlLauncher:          firefox
+URxvt.matcher.rend.0: Uline Bold fg5
+
+! Copy and paste
+URxvt.clipboard.autocopy: true
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+
+! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorColor:          #657b83
+URxvt.cursorUnderline:      false
+
+! Pointer
+URxvt.pointerBlank:         true
+
+
+!!*fading: 40
+*fadeColor: #002b36
+*cursorColor: #93a1a1
+*pointerColorBackground: #586e75
+*pointerColorForeground: #93a1a1
+
+URxvt*background: #151515
+URxvt*foreground: #f7f7f7
+!black
+URxvt*color0: #101010
+URxvt*color8: #404040
+!red
+URxvt*color1: #e5211d 
+URxvt*color9: #ad3430 
+!green
+URxvt*color2: #77a026 
+URxvt*color10: #94db43 
+!yellow
+URxvt*color3: #d2dd30 
+URxvt*color11: #ddef56 
+!blue
+URxvt*color4: #2e97ba 
+URxvt*color12: #77c6e5 
+!magenta
+URxvt*color5: #c42b7f 
+URxvt*color13: #ef6bd5 
+!cyan
+URxvt*color6: #25b1c6 
+URxvt*color14: #70e0ef 
+!white
+URxvt*color7: #dddddd
+URxvt*color15: #ffffff
+
