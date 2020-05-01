@@ -76,7 +76,7 @@ function configGeneral {
     log ok "vconsole.conf"
     # Instalación de directorios personales
     #xdg-user-dirs-update
-    pacman -S acpid
+    pacman -S --noconfirm acpid
     hwclock -w
     log ok "hwclock"
     systemctl enable acpid.service
