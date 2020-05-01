@@ -76,6 +76,7 @@ function configGeneral {
     log ok "vconsole.conf"
     # Instalación de directorios personales
     #xdg-user-dirs-update
+    pacman -S acpid
     hwclock -w
     log ok "hwclock"
     systemctl enable acpid.service
@@ -99,9 +100,6 @@ function configRed {
 
 
 function configAUR {
-    ## Deprecated for dead of yaourt
-    # echo -e "[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
-    # pacman -Sy yaourt
     cd /tmp
     gpg --recv-key 465022E743D71E39
     git clone https://aur.archlinux.org/aurman.git
@@ -132,11 +130,8 @@ function configGrub {
 installPckgs
 configGeneral
 configUsuario
-configRed# DEPRECATED
-function getFiles {
-    sh deployment.sh
-}
-configAUR
+configRed
+#configAUR # ERROR: Running makepg as root is not allowed as it can use permanent, catastrophic damage to your system.
 configGrub
 
 mkinitcpio -p linux

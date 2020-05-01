@@ -37,18 +37,17 @@ log() {
     fi
 }
 
-'''
-    Formato y administración de discos.
-    Esta función presupone el siguiente particionado de disco:
-    
-        boot /dev/sda1	  /boot	  150MB	*Bootable
-        root /dev/sda2	  /	  –
-        home /dev/sda3	  /home	  - 
-        swap /dev/sda4	  /swap	  2GB	* Type: Linux Swap / Solaris
 
-    Se puede obtener con el comando cfdisk antes de ejecutar el script.
-    !Función pendiente de automatizar.
-'''
+# Formato y administración de discos.
+# Esta función presupone el siguiente particionado de disco:
+
+#     boot /dev/sda1	  /boot	  150MB	*Bootable
+#     root /dev/sda2	  /	  –
+#     home /dev/sda3	  /home	  - 
+#     swap /dev/sda4	  /swap	  2GB	* Type: Linux Swap / Solaris
+
+# Se puede obtener con el comando cfdisk antes de ejecutar el script.
+# !Función pendiente de automatizar.
 function adminDiscos {
     log info "Iniciando administración de discos"
     if [  $uefi = true ]; then
@@ -84,10 +83,8 @@ function adminDiscos {
     log ok "$home HOME montado en /mnt/home"
 }
 
-'''
-    Instalación base del sistema operativo y generación del fstab.
-    !Pendiente de extraer los paquetes para una mayor escala y abtracción.
-'''
+# Instalación base del sistema operativo y generación del fstab.
+# !Pendiente de extraer los paquetes para una mayor escala y abtracción.
 function instalacionBase {
     log info "Inicialización e instalación de sistema base"
     pacstrap /mnt linux linux-firmware base base-devel networkmanager xf86-input-synaptics grub ntfs-3g gvfs xdg-user-dirs nano wpa_supplicant dialog
@@ -97,9 +94,7 @@ function instalacionBase {
     genfstab -U -p /mnt >> /mnt/etc/fstab
 }
 
-'''
-    Acceso a jaula chroot de carpeta root del sistema (/mnt)
-'''
+# Acceso a jaula chroot de carpeta root del sistema (/mnt)
 function jaulaChroot {
     cp $chr /mnt
     chmod +x /mnt/$chr
