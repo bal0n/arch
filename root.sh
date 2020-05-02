@@ -4,10 +4,10 @@
 keys=es
 chr=chroot.sh
 pckgs=pckgs
-boot=/dev/sda1 /dev/nvme0n1p1
-root=/dev/sda2 /dev/nvme0n1p2
-home=/dev/sda3 /dev/nvme0n1p3
-swap=/dev/sda4 /dev/nvme0n1p4
+boot=/dev/sda1 #/dev/nvme0n1p1
+root=/dev/sda2 #/dev/nvme0n1p2
+home=/dev/sda3 #/dev/nvme0n1p3
+swap=/dev/sda4 #/dev/nvme0n1p4
 uefi=false
 
 RED='\033[0;31m'
