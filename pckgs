@@ -10,7 +10,6 @@ xf86-video-nouveau
 nvidia
 nvidia-utils
 nvidia-settings
-optimus-manager
 
 git
 tree
@@ -37,7 +36,6 @@ pulseaudio
 pulseaudio-alsa
 pavucontrol
 pamixer
-xbindkeys
 acpi
 acpid
 rxvt-unicode
