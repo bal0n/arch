@@ -77,6 +77,8 @@ function configGeneral {
     # Instalación de directorios personales
     #xdg-user-dirs-update
     pacman -S --noconfirm acpid
+    log info "Inicialización de instalación de paquetes"
+    pacman -Sy $(<pckgs) # noconfirm
     hwclock -w
     log ok "hwclock"
     systemctl enable acpid.service
@@ -127,7 +129,7 @@ function configGrub {
 }
 
 # Guión
-installPckgs
+#installPckgs
 configGeneral
 configUsuario
 configRed
