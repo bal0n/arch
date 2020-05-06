@@ -35,8 +35,8 @@ Podemos encontrar varias diferencias entre BIOS Y UEFI, pero las que nos importa
 
 ## Guión de instalación de Arch GNU/Linux usando scripts
 
- 	pacman -Sy --noconfirm git && git clone https://github.com/monoarkhe/arch.git && cd arch
-	chmod +x root
+	loadkeys es
+ 	pacman -Sy --noconfirm git && git clone https://github.com/monoarkhe/arch.git && cd arch && chmod +x root.sh
 	# Configure root and chroot variables
 	# Configure pckgs
 	./root.sh
