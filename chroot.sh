@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Variables
-hostname=arch
-username=balon
-passu=archlinux
-passroot=archlinux
-pckgs=pckgs
+hostname=arch           # Nombre de equipo
+username=username       # Nombre de usuario
+passu=archlinux         # Contraseña de usuario
+passroot=archlinux      # Contraseña de root
+pckgs=pckgs             # Fichero de paquetes
+uefi=false              # Modo UEFI o BIOS
 scriptsDir=scripts
-uefi=false
 
 RED='\033[0;31m'
 BLUE="\033[0;34m"
@@ -78,7 +78,6 @@ function configGeneral {
     #xdg-user-dirs-update
     pacman -S --noconfirm acpid
     log info "Inicialización de instalación de paquetes"
-    pacman -Sy $(<pckgs) # noconfirm
     hwclock -w
     log ok "hwclock"
     systemctl enable acpid.service
@@ -129,7 +128,7 @@ function configGrub {
 }
 
 # Guión
-#installPckgs
+installPckgs
 configGeneral
 configUsuario
 configRed
