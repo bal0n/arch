@@ -112,10 +112,10 @@ adminDiscos
 conexion=false
 while [  $conexion = false ]; do
     if ping -c1 google.com &> /dev/null; then
-	log ok "Conexión correcta";
-	conexion=true;
+        log ok "Conexión correcta";
+        conexion=true;
     else
-	wifi-menu;
+	    wifi-menu;
     fi
 done
 instalacionBase
