@@ -38,11 +38,13 @@ pavucontrol
 pamixer
 acpi
 acpid
-rxvt-unicode
 termite
 compton
 unclutter
 ttf-bitstream-vera
+
+rxvt-unicode
+urxvt-perls
 
 firefox
 firefox-i18n-es-es
