@@ -41,6 +41,7 @@ acpid
 termite
 compton
 unclutter
+rofi
 ttf-bitstream-vera
 
 rxvt-unicode
