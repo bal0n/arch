@@ -4,11 +4,11 @@
 keys=es
 chr=chroot.sh
 pckgs=pckgs
-boot=/dev/sda1 #/dev/nvme0n1p1
-root=/dev/sda2 #/dev/nvme0n1p2
-home=/dev/sda3 #/dev/nvme0n1p3
-swap=/dev/sda4 #/dev/nvme0n1p4
-uefi=false
+boot=/dev/nvme0n1p1
+root=/dev/nvme0n1p2
+home=/dev/nvme0n1p3
+swap=/dev/nvme0n1p4
+uefi=true
 
 RED='\033[0;31m'
 BLUE="\033[0;34m"
@@ -88,7 +88,7 @@ function adminDiscos {
 # !Pendiente de extraer los paquetes para una mayor escala y abtracción.
 function instalacionBase {
     log info "Inicialización e instalación de sistema base"
-    pacstrap /mnt linux linux-firmware base base-devel networkmanager xf86-input-synaptics grub ntfs-3g gvfs xdg-user-dirs nano wpa_supplicant dialog
+    pacstrap /mnt base base-devel grub ntfs-3g networkmanager efibootmgr gvfs gvfs-mtp xdg-user-dirs nano wpa_supplicant dialog xf86-input-synaptics linux linux-firmware dhcpcd
     if [  $uefi = true ]; then
         pacstrap /mnt efibootmgr
     fi
