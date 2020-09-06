@@ -119,5 +119,5 @@ while [  $conexion = false ]; do
     fi
 done
 instalacionBase
-jaulaChroot
-reboot
+#jaulaChroot
+#reboot
