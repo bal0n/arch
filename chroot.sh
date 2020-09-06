@@ -114,13 +114,12 @@ function configAUR {
 
 # Configuración de Grub
 function configGrub {
-    # TODO: GRUB se instala a pelo en SDA, cambiar por variable
     if [  $uefi = true ]; then
         log info "grub en modo UEFI"
         grub-install --efi-directory=/boot/efi --bootloader-id='Arch Linux' --target=x86_64-efi
     else
         log info "grub en modo BIOS"
-        grub-install /dev/sda
+        grub-install /dev/sda # TODO: GRUB se instala a pelo en SDA, cambiar por variable
     fi
 
     grub-mkconfig -o /boot/grub/grub.cfg
