@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Esto es una prueba
 
 You can use the [editor on GitHub](https://github.com/metaphysys/arcx/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
